@@ -74,8 +74,16 @@ public class Programa {
                    System.out.println("===== QUESTÕES =====");
                    System.out.println(" ");
 
-                   for (String questao: perguntas) {
-                       System.out.println(questao);
+                   for (int i = 0; i < perguntas.size(); i++) {
+                       System.out.println("Questão " + (i + 1) + " "+ perguntas.get(i));
+                       System.out.println(" ");
+                       System.out.println("A) " +alternativasA.get(i));
+                       System.out.println("B) " +alternativasB.get(i));
+                       System.out.println("C) " +alternativasC.get(i));
+                       System.out.println("D) " +alternativasD.get(i));
+                       System.out.println("Resposta correta: " + respostasCorretas.get(i));
+                       System.out.println(" ");
+
                    }
                    break;
 
