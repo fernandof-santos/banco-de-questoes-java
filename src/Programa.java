@@ -17,10 +17,9 @@ public class Programa {
         System.out.println(" ");
         System.out.println("1 - Cadastrar Questão");
         System.out.println("2 - Listar Questão");
-        System.out.println("3 - Buscar Questão");
-        System.out.println("4 - Atualizar Questão");
-        System.out.println("5 - Remover Questão");
-        System.out.println("6 - Simulado");
+        System.out.println("3 - Atualizar Questão");
+        System.out.println("4 - Remover Questão");
+        System.out.println("5 - Simulado");
         System.out.println("0 - Sair");
 
         System.out.println(" ");
@@ -88,7 +87,62 @@ public class Programa {
                    break;
 
                case 3:
-                   System.out.println("    ");
+                   System.out.println("===== Atualizar Questão =====");
+                   System.out.println(" ");
+                   System.out.print("Digite o número da questão que deseja atualizar: ");
+                   int numeroQuestao = sc.nextInt();
+
+                   sc.nextLine();
+
+                   int indice = numeroQuestao - 1;
+                   System.out.println("Pergunta Atual: " + perguntas.get(indice));
+                   System.out.println(" ");
+
+                   System.out.print("Digite a nova pergunta: ");
+                   String novaPergunta = sc.nextLine();
+                   perguntas.set(indice, novaPergunta);
+
+                   System.out.println("Alternativa A atual: " + alternativasA.get(indice));
+                   System.out.println(" ");
+                   System.out.print("Digite a nova Alternativa A: ");
+                   String novaAlternativaA = sc.nextLine();
+                   alternativasA.set(indice, novaAlternativaA);
+
+                   System.out.println("Alternativa B atual: " + alternativasB.get(indice));
+                   System.out.println(" ");
+                   System.out.print("Digite a nova Alternativa B: ");
+                   String novaAlternativaB = sc.nextLine();
+                   alternativasB.set(indice, novaAlternativaB);
+
+                   System.out.println("Alternativa C atual: " + alternativasC.get(indice));
+                   System.out.println(" ");
+                   System.out.print("Digite a nova Alternativa C: ");
+                   String novaAlternativaC = sc.nextLine();
+                   alternativasC.set(indice, novaAlternativaC);
+
+                   System.out.println("Alternativa D atual: " + alternativasD.get(indice));
+                   System.out.println(" ");
+                   System.out.print("Digite a nova Alternativa D: ");
+                   String novaAlternativaD = sc.nextLine();
+                   alternativasD.set(indice, novaAlternativaD);
+
+                   System.out.println("Resposta Atual Correta: " + respostasCorretas.get(indice));
+                   System.out.println(" ");
+                   System.out.print("Digite a nova alternativa correta: ");
+                   String novaRespostaCorretas = sc.nextLine().toUpperCase();
+
+                   while (! (novaRespostaCorretas.equals("A") || novaRespostaCorretas.equals("B") || novaRespostaCorretas.equals("C") || novaRespostaCorretas.equals("D") ) ){
+                       System.out.println("Resposta Inválida!");
+                       System.out.print("Digite novamente: ");
+                       novaRespostaCorretas = sc.nextLine().toUpperCase();
+
+                   }
+
+                   respostasCorretas.set(indice, novaRespostaCorretas);
+
+                   System.out.println("Questão atualizada com sucesso. ");
+
+
                    break;
 
                case 4:
@@ -99,9 +153,6 @@ public class Programa {
                    System.out.println("     ");
                    break;
 
-               case 6:
-                   System.out.println("      ");
-                   break;
 
                case 0:
                    System.out.println("Você encerrou o programa. ");
