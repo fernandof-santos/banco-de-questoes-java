@@ -57,7 +57,10 @@ public class Programa {
                    String resposta = sc.nextLine().toUpperCase();
 
 
-                   while (! (resposta.equals("A") || resposta.equals("B") || resposta.equals("C") || resposta.equals("D"))) {
+                   while (! (resposta.equals("A")
+                           || resposta.equals("B")
+                           || resposta.equals("C")
+                           || resposta.equals("D"))) {
                        System.out.println("Resposta Inválida!");
                        System.out.println("Digite novamente: ");
                        resposta = sc.nextLine().toUpperCase();
@@ -131,7 +134,10 @@ public class Programa {
                    System.out.print("Digite a nova alternativa correta: ");
                    String novaRespostaCorretas = sc.nextLine().toUpperCase();
 
-                   while (! (novaRespostaCorretas.equals("A") || novaRespostaCorretas.equals("B") || novaRespostaCorretas.equals("C") || novaRespostaCorretas.equals("D") ) ){
+                   while (! (novaRespostaCorretas.equals("A")
+                           || novaRespostaCorretas.equals("B")
+                           || novaRespostaCorretas.equals("C")
+                           || novaRespostaCorretas.equals("D") ) ){
                        System.out.println("Resposta Inválida!");
                        System.out.print("Digite novamente: ");
                        novaRespostaCorretas = sc.nextLine().toUpperCase();
@@ -146,7 +152,28 @@ public class Programa {
                    break;
 
                case 4:
-                   System.out.println("   ");
+                   System.out.print("Qual questão você deseja remover: ");
+                   int numeroQuestaoRemover = sc.nextInt();
+
+                   while (numeroQuestaoRemover  <  1 || numeroQuestaoRemover > perguntas.size()) {
+                       System.out.println("Numero Inválido!");
+                       System.out.print("Digite novamente: ");
+                       numeroQuestaoRemover = sc.nextInt();
+
+                   }
+
+                   int indiceR = numeroQuestaoRemover - 1;
+
+                   perguntas.remove(indiceR);
+                   alternativasA.remove(indiceR);
+                   alternativasB.remove(indiceR);
+                   alternativasC.remove(indiceR);
+                   alternativasD.remove(indiceR);
+                   respostasCorretas.remove(indiceR);
+
+                   System.out.println("Questão removida com sucesso. ");
+
+
                    break;
 
                case 5:
