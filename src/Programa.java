@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Programa {
@@ -95,9 +96,16 @@ public class Programa {
                    System.out.print("Digite o número da questão que deseja atualizar: ");
                    int numeroQuestao = sc.nextInt();
 
+                   while (numeroQuestao < 1 || numeroQuestao > perguntas.size()) {
+                       System.out.println("Numero Inválido!");
+                       System.out.print("Digite novamente: ");
+                       numeroQuestao = sc.nextInt();
+                   }
+
                    sc.nextLine();
 
                    int indice = numeroQuestao - 1;
+
                    System.out.println("Pergunta Atual: " + perguntas.get(indice));
                    System.out.println(" ");
 
@@ -177,14 +185,56 @@ public class Programa {
                    break;
 
                case 5:
-                   System.out.println("     ");
+                   System.out.println("===== SIMULADO =====");
+                   System.out.println(" ");
+                   int acertos = 0;
+                   int erros = 0;
+
+                   if (perguntas.size() == 0) {
+                       System.out.println("Não temos questões cadastradas!");
+
+                   }
+                   else {
+
+                   for (int i = 0; i < perguntas.size(); i++) {
+                       System.out.println("Questão " + (i + 1) + " "+ perguntas.get(i));
+                       System.out.println(" ");
+                       System.out.println("A)" + alternativasA.get(i));
+                       System.out.println("B) " +alternativasB.get(i));
+                       System.out.println("C) " +alternativasC.get(i));
+                       System.out.println("D) " +alternativasD.get(i));
+                       System.out.print("Qual alternativa correta: ");
+                       String respostaSimulado = sc.nextLine().toUpperCase();
+                       System.out.println(" ");
+
+                       if (respostaSimulado.equals(respostasCorretas.get(i))) {
+                           System.out.println(" ");
+                           System.out.println("Você Acertou!");
+                           acertos ++;
+                       }
+                       else {
+                           System.out.println(" ");
+                           System.out.println("Você errou!");
+                           System.out.println("A resposta Correta era: " + respostasCorretas.get(i));
+                           erros ++;
+                       }
+
+                   }
+
+                   System.out.println("===== Resultado =====");
+                   System.out.println(" ");
+                   System.out.println("Acertos: "+ acertos);
+                   System.out.println("Erros: "+ erros);
+                   }
                    break;
 
 
                case 0:
                    System.out.println("Você encerrou o programa. ");
 
-
+               default:
+                   System.out.println("Opção Inválida! ");
+                   break;
            }
         if (opcao == 0) {
             break;
