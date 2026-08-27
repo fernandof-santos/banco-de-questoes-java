@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Programa {
@@ -25,10 +25,18 @@ public class Programa {
 
         System.out.println(" ");
 
-        System.out.print("Escolha uma opção: ");
-        int opcao = sc.nextInt();
-        sc.nextLine();
+        int opcao;
 
+        try {
+        System.out.print("Escolha uma opção: ");
+        opcao = sc.nextInt();
+        sc.nextLine();
+        }
+        catch (InputMismatchException erro) {
+            System.out.println("Opção Inválida!");
+            sc.nextLine();
+            continue;
+        }
            switch (opcao) {
                case 1:
                    System.out.println("==== CADASTRAR QUESTÃO ====");
@@ -77,6 +85,12 @@ public class Programa {
                    System.out.println("===== QUESTÕES =====");
                    System.out.println(" ");
 
+                   if (perguntas.size() == 0) {
+                       System.out.println("Não temos questões cadastradas!");
+
+                   }
+                   else {
+
                    for (int i = 0; i < perguntas.size(); i++) {
                        System.out.println("Questão " + (i + 1) + " "+ perguntas.get(i));
                        System.out.println(" ");
@@ -88,11 +102,17 @@ public class Programa {
                        System.out.println(" ");
 
                    }
+                   }
                    break;
 
                case 3:
                    System.out.println("===== Atualizar Questão =====");
                    System.out.println(" ");
+
+                   if (perguntas.size() == 0) {
+                       System.out.println("Não temos questões para atualizar!");
+                   }
+                   else  {
                    System.out.print("Digite o número da questão que deseja atualizar: ");
                    int numeroQuestao = sc.nextInt();
 
@@ -152,14 +172,21 @@ public class Programa {
 
                    }
 
+
                    respostasCorretas.set(indice, novaRespostaCorretas);
 
                    System.out.println("Questão atualizada com sucesso. ");
-
+                   }
 
                    break;
 
                case 4:
+                   System.out.println("===== Remover Questão =====");
+                   System.out.println(" ");
+                   if (perguntas.size() == 0) {
+                       System.out.println("Não temos questões cadastradas para remover!");
+                   }
+                   else {
                    System.out.print("Qual questão você deseja remover: ");
                    int numeroQuestaoRemover = sc.nextInt();
 
@@ -181,6 +208,7 @@ public class Programa {
 
                    System.out.println("Questão removida com sucesso. ");
 
+                   }
 
                    break;
 
