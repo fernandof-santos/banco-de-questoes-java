@@ -259,7 +259,7 @@ public class Programa {
 
                case 0:
                    System.out.println("Você encerrou o programa. ");
-
+                   break;
                default:
                    System.out.println("Opção Inválida! ");
                    break;
